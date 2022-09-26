@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 public class AuctionDto implements Serializable {
 
     private String itemName;
-    private Category category;
+    private String category;
     private Double startingAmount;
     private long startTime;
     private long endTime;

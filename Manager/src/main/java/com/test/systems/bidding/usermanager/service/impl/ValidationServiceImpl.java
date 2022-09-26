@@ -9,6 +9,6 @@ import org.springframework.stereotype.Service;
 public class ValidationServiceImpl implements ValidationService {
     @Override
     public Status checkStatus(AuctionDto auctionDto) {
-        return null;
+        return Status.FUNCTIONAL;
     }
 }

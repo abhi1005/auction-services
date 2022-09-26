@@ -1,6 +1,7 @@
 package com.test.systems.bidding.usermanager.service.impl;
 
 import com.test.systems.bidding.usermanager.constants.AuctionStatus;
+import com.test.systems.bidding.usermanager.constants.Category;
 import com.test.systems.bidding.usermanager.entity.AuctionDetails;
 import com.test.systems.bidding.usermanager.entity.AuctionEvent;
 import com.test.systems.bidding.usermanager.entity.Item;
@@ -44,7 +45,8 @@ public class AuctionServiceImpl implements AuctionService {
         item.setItemId(UUID.randomUUID().toString());
         item.setName(auctionDto.getItemName());
         item.setStatus(validationService.checkStatus(auctionDto));
-        item.setCategory(auctionDto.getCategory());
+        item.setCategory(Category.valueOf(auctionDto.getCategory()));
+        item.setStartingAmount(auctionDto.getStartingAmount());
         item.setAuctionEvent(auctionEvent);
 
         auctionEvent.setAuctionStatus(AuctionStatus.SCHEDULED);
@@ -56,8 +58,8 @@ public class AuctionServiceImpl implements AuctionService {
         auctionDetails.setId(UUID.randomUUID().toString());
         auctionEvent.setAuctionDetails(auctionDetails);
 
-        //itemRepository.save(item);
-        auctionEventRepository.save(auctionEvent);
+        itemRepository.save(item);
+        //auctionEventRepository.save(auctionEvent);
 
         return auctionEvent;
     }

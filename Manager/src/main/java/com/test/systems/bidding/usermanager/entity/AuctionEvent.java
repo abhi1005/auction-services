@@ -19,12 +19,12 @@ public class AuctionEvent {
 
     private AuctionStatus auctionStatus;
 
-    @OneToOne(mappedBy = "auctionEvent", fetch = FetchType.LAZY,
+    @OneToOne(mappedBy = "auctionEvent", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     private Item item;
 
     @OneToOne(mappedBy = "auctionEvent", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.PERSIST)
     private AuctionDetails auctionDetails;
 
     @ManyToMany(mappedBy = "auctions", fetch = FetchType.LAZY)

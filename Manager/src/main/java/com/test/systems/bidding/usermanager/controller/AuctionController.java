@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/auction_services")
+@RestController
+@RequestMapping(value = "/auction_services")
 public class AuctionController {
 
     @Autowired
